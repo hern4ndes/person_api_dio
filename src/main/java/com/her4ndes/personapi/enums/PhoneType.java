@@ -1,4 +1,4 @@
-package com.her4ndes.personapi.controller.enums;
+package com.her4ndes.personapi.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
