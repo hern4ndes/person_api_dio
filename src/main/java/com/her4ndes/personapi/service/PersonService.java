@@ -4,11 +4,13 @@ import com.her4ndes.personapi.dto.mapper.PersonMapper;
 import com.her4ndes.personapi.dto.request.PersonDTO;
 import com.her4ndes.personapi.dto.response.MessageResponseDTO;
 import com.her4ndes.personapi.entity.Person;
+import com.her4ndes.personapi.exception.PersonNotFoundExcepetion;
 import com.her4ndes.personapi.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -40,5 +42,14 @@ public class PersonService {
          return allPeople.stream()
                  .map(personMapper::toDTO)
                  .collect(Collectors.toList());
+    }
+
+    public PersonDTO findById(Long id) throws PersonNotFoundExcepetion {
+        Optional<Person> optionalPerson = personRepository.findById(id);
+        if(!optionalPerson.isPresent()){
+            throw new PersonNotFoundExcepetion(id);
+        }
+        return personMapper.toDTO(optionalPerson.get());
+
     }
 }
