@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.PostUpdate;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -46,4 +47,10 @@ public class PersonController {
         personService.deletById(id);
 
     }
+
+    @PutMapping("/{id}")
+    public MessageResponseDTO upadateByid(@PathVariable Long id, @RequestBody @Valid PersonDTO personDTO) throws PersonNotFoundExcepetion{
+        return personService.updateByid(id,personDTO);
+    }
+
 }
