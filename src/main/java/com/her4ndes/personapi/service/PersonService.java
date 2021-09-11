@@ -48,6 +48,7 @@ public class PersonService {
 
     }
 
+
     public void deletById( Long id) throws PersonNotFoundExcepetion{
         verifyIfExists(id);
         personRepository.deleteById(id);
@@ -61,6 +62,7 @@ public class PersonService {
         return createMessageResponse(savedPerson.getId(),"Person successfully updated with ID ");
     }
 
+
     private Person verifyIfExists(Long id) throws PersonNotFoundExcepetion {
         return personRepository.findById(id).orElseThrow(() -> new PersonNotFoundExcepetion(id));
     }
@@ -70,5 +72,10 @@ public class PersonService {
                 .builder()
                 .message(message + id)
                 .build();
+
+    public void deletById( Long id) throws PersonNotFoundExcepetion{
+        verifyIfExists(id);
+        personRepository.deleteById(id);
+
     }
 }
