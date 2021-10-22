@@ -17,7 +17,7 @@ https://poeple-api.herokuapp.com/api/v1/people
 ```
 Foram ultizadas as seguintes tecnologias para o desenvolvimento dessa aplicação:
 
-* Java 11 SE ou versões superiores.  ![image]({https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white}) 
+* Java 11 SE ou versões superiores.  
 * Maven 3.6.3 ou versões superiores, para o gerenciamento de dependencias.
 * H2 como banco de dados.
 * Intellj IDEA Community Edition.
